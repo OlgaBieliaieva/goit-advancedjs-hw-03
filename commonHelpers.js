@@ -12,9 +12,9 @@ import{a as c,S as p,i as h,P as u,N as d}from"./assets/vendor-2cd1003f.js";(fun
     <p class="label">Affection level</p>
     <ul class="stars">
     ${t.map(s=>e.affection_level>=s?`<li><svg width="30" height="30">
-    <use href="/star-rating.icons.svg#star-filled"></use>
+    <use href="../assets/star-rating.icons.svg#star-filled"></use>
   </svg></li>`:`<li><svg width="30" height="30">
-        <use href="/star-rating.icons.svg#star-empty"></use>
+        <use href="../assets/star-rating.icons.svg#star-empty"></use>
       </svg></li>`).join("")}
     </ul>    
     </li>
