@@ -89,10 +89,10 @@ function createCatInfoMarkup(data) {
       .map(item =>
         catInfo.affection_level >= item
           ? `<li><svg width="30" height="30">
-    <use href="/images/star-rating.icons.svg#star-filled"></use>
+    <use href="../assets/star-rating.icons.svg#star-filled"></use>
   </svg></li>`
           : `<li><svg width="30" height="30">
-        <use href="/images/star-rating.icons.svg#star-empty"></use>
+        <use href="../assets/star-rating.icons.svg#star-empty"></use>
       </svg></li>`
       )
       .join('')}
