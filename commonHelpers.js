@@ -1,5 +1,5 @@
-import{a as c,S as p,i as h,P as u,N as d}from"./assets/vendor-2cd1003f.js";(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const a of document.querySelectorAll('link[rel="modulepreload"]'))t(a);new MutationObserver(a=>{for(const l of a)if(l.type==="childList")for(const s of l.addedNodes)s.tagName==="LINK"&&s.rel==="modulepreload"&&t(s)}).observe(document,{childList:!0,subtree:!0});function n(a){const l={};return a.integrity&&(l.integrity=a.integrity),a.referrerpolicy&&(l.referrerPolicy=a.referrerpolicy),a.crossorigin==="use-credentials"?l.credentials="include":a.crossorigin==="anonymous"?l.credentials="omit":l.credentials="same-origin",l}function t(a){if(a.ep)return;a.ep=!0;const l=n(a);fetch(a.href,l)}})();const v="https://api.thecatapi.com/v1/breeds/?",m=" https://api.thecatapi.com/v1/images/search?",o={api_key:"live_4OV6mO4kCm8Wvp0obaFUUKjV7Fg0aDGCrA5iSKIh93pBZ22atpg8saVdJ0BQ988s",breed_ids:""};async function f(){const i=new URLSearchParams(o);try{return(await c.get(`${v}${i}`)).data}catch(e){console.log(e)}}async function w(i){o.breed_ids!==i&&(o.breed_ids=i);const e=new URLSearchParams({...o,limit:15});try{return(await c.get(`${m}${e}`)).data}catch(n){console.log(n)}}const r={searchSelect:document.querySelector(".breed-select"),searchResult:document.querySelector(".cat-info"),swiperContainer:document.querySelector(".swiper-container"),swiper:document.querySelector(".swiper"),swiperWrapper:document.querySelector(".swiper-wrapper"),descriptionWrapper:document.querySelector(".description-container"),loader:document.querySelector(".loader")};r.searchSelect.addEventListener("change",b);f().then(i=>y(i)).catch(()=>g());function y(i){const e=i.map(({id:n,name:t})=>`<option class="breed-option" value="${n}">${t}</option>`).join("");r.searchSelect.insertAdjacentHTML("beforeend",e)}function b(i){r.loader.classList.remove("visually-hidden");const e=i.target.value;e!==""?(r.swiperContainer.classList.add("visually-hidden"),r.descriptionWrapper.innerHTML="",r.swiperWrapper.innerHTML="",w(e).then(n=>L(n)).catch(n=>g())):(r.descriptionWrapper.innerHTML="",r.swiperContainer.innerHTML="",r.loader.classList.add("visually-hidden"))}function L(i){const e=i[0].breeds[0],n=i.map(s=>s.url),t=[1,2,3,4,5],a=n.map(s=>`        
-        <div class="swiper-slide"><img class="slide-img" src="${s}" alt="${e.name}" width="500" height="376"></div>`).join(""),l=`<h2>${e.name}</h2>
+import{a as o,S as h,i as d,P as g,N as u}from"./assets/vendor-2cd1003f.js";(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const l of document.querySelectorAll('link[rel="modulepreload"]'))s(l);new MutationObserver(l=>{for(const r of l)if(r.type==="childList")for(const i of r.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&s(i)}).observe(document,{childList:!0,subtree:!0});function n(l){const r={};return l.integrity&&(r.integrity=l.integrity),l.referrerpolicy&&(r.referrerPolicy=l.referrerpolicy),l.crossorigin==="use-credentials"?r.credentials="include":l.crossorigin==="anonymous"?r.credentials="omit":r.credentials="same-origin",r}function s(l){if(l.ep)return;l.ep=!0;const r=n(l);fetch(l.href,r)}})();const v="https://api.thecatapi.com/v1/breeds/?",m=" https://api.thecatapi.com/v1/images/search?",p={api_key:"live_4OV6mO4kCm8Wvp0obaFUUKjV7Fg0aDGCrA5iSKIh93pBZ22atpg8saVdJ0BQ988s",breed_ids:""};async function w(){const t=new URLSearchParams(p);try{return(await o.get(`${v}${t}`)).data}catch(e){console.log(e)}}async function f(t){p.breed_ids!==t&&(p.breed_ids=t);const e=new URLSearchParams({...p,limit:15});try{return(await o.get(`${m}${e}`)).data}catch(n){console.log(n)}}const a={searchSelect:document.querySelector(".breed-select"),searchResult:document.querySelector(".cat-info"),swiperContainer:document.querySelector(".swiper-container"),swiper:document.querySelector(".swiper"),swiperWrapper:document.querySelector(".swiper-wrapper"),descriptionWrapper:document.querySelector(".description-container"),loader:document.querySelector(".loader")};a.searchSelect.addEventListener("change",y);w().then(t=>M(t)).catch(()=>c());function M(t){const e=t.map(({id:n,name:s})=>`<option class="breed-option" value="${n}">${s}</option>`).join("");a.searchSelect.insertAdjacentHTML("beforeend",e)}function y(t){console.log(t),a.loader.classList.remove("visually-hidden");const e=t.target.value;e!==""?(a.swiperContainer.classList.add("visually-hidden"),a.descriptionWrapper.innerHTML="",a.swiperWrapper.innerHTML="",f(e).then(n=>z(n)).catch(n=>c())):(a.descriptionWrapper.innerHTML="",a.swiperContainer.innerHTML="",a.loader.classList.add("visually-hidden"))}function z(t){console.log(t);const e=t[0].breeds[0],n=t.map(i=>i.url),s=[1,2,3,4,5];console.log(n);const l=n.map(i=>`        
+        <div class="swiper-slide"><img class="slide-img" src="${i}" alt="${e.name}" width="500" height="376"></div>`).join(""),r=`<h2>${e.name}</h2>
     <p class="label">Origin: <span class="text">${e.origin}</span></p>    
     <p class="label">Weight: <span class="text">${e.weight.metric}</span> kg</p>
     <p class="label">Weight: <span class="text">${e.weight.metric}</span> kg</p>
@@ -11,123 +11,132 @@ import{a as c,S as p,i as h,P as u,N as d}from"./assets/vendor-2cd1003f.js";(fun
     <li>
     <p class="label">Affection level</p>
     <ul class="stars">
-    ${t.map(s=>e.affection_level>=s?`<li><svg width="30" height="30">
-    <use href="../assets/star-rating.icons.svg#star-filled"></use>
-  </svg></li>`:`<li><svg width="30" height="30">
-        <use href="../assets/star-rating.icons.svg#star-empty"></use>
+    ${s.map(i=>e.affection_level>=i?`<li><svg width="30" height="30">          
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>          
+  </svg></li>`:`<li><svg width="30" height="30">          
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-6.983 3.671 1.334-7.776-5.65-5.507 7.808-1.134 3.492-7.075 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z"></path>         
       </svg></li>`).join("")}
     </ul>    
     </li>
     <li>
     <p class="label">Adaptability</p>
     <ul class="stars">
-    ${t.map(s=>e.adaptability>=s?`<li><svg width="30" height="30">
-    <use href="/images/star-rating.icons.svg#star-filled"></use>
-  </svg></li>`:`<li><svg width="30" height="30">
-        <use href="/images/star-rating.icons.svg#star-empty"></use>
+    ${s.map(i=>e.adaptability>=i?`<li><svg width="30" height="30">          
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>          
+  </svg></li>`:`<li><svg width="30" height="30">          
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-6.983 3.671 1.334-7.776-5.65-5.507 7.808-1.134 3.492-7.075 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z"></path>          
       </svg></li>`).join("")}
     </ul>    
     </li>
     <li>
     <p class="label">Child friendly</p>
     <ul class="stars">
-    ${t.map(s=>e.child_friendly>=s?`<li><svg width="30" height="30">
-    <use href="/images/star-rating.icons.svg#star-filled"></use>
-  </svg></li>`:`<li><svg width="30" height="30">
-        <use href="/images/star-rating.icons.svg#star-empty"></use>
+    ${s.map(i=>e.child_friendly>=i?`<li><svg width="30" height="30">         
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+          
+  </svg></li>`:`<li><svg width="30" height="30">         
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-6.983 3.671 1.334-7.776-5.65-5.507 7.808-1.134 3.492-7.075 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z"></path>          
       </svg></li>`).join("")}
     </ul>    
     </li>
     <li>
     <p class="label">Dog friendly</p>
     <ul class="stars">
-    ${t.map(s=>e.dog_friendly>=s?`<li><svg width="30" height="30">
-    <use href="/images/star-rating.icons.svg#star-filled"></use>
-  </svg></li>`:`<li><svg width="30" height="30">
-        <use href="/images/star-rating.icons.svg#star-empty"></use>
+    ${s.map(i=>e.dog_friendly>=i?`<li><svg width="30" height="30">         
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>         
+  </svg></li>`:`<li><svg width="30" height="30">          
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-6.983 3.671 1.334-7.776-5.65-5.507 7.808-1.134 3.492-7.075 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z"></path>          
       </svg></li>`).join("")}
     </ul>    
     </li>
     <li>
     <p class="label">Energy level</p>
     <ul class="stars">
-    ${t.map(s=>e.energy_level>=s?`<li><svg width="30" height="30">
-    <use href="/images/star-rating.icons.svg#star-filled"></use>
-  </svg></li>`:`<li><svg width="30" height="30">
-        <use href="/images/star-rating.icons.svg#star-empty"></use>
+    ${s.map(i=>e.energy_level>=i?`<li><svg width="30" height="30">         
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+          
+  </svg></li>`:`<li><svg width="30" height="30">          
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-6.983 3.671 1.334-7.776-5.65-5.507 7.808-1.134 3.492-7.075 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z"></path>          
       </svg></li>`).join("")}
     </ul>    
     </li>
     <li>
     <p class="label">Grooming</p>
     <ul class="stars">
-    ${t.map(s=>e.grooming>=s?`<li><svg width="30" height="30">
-    <use href="/images/star-rating.icons.svg#star-filled"></use>
-  </svg></li>`:`<li><svg width="30" height="30">
-        <use href="/images/star-rating.icons.svg#star-empty"></use>
+    ${s.map(i=>e.grooming>=i?`<li><svg width="30" height="30">          
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+          
+  </svg></li>`:`<li><svg width="30" height="30">          
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-6.983 3.671 1.334-7.776-5.65-5.507 7.808-1.134 3.492-7.075 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z"></path>          
       </svg></li>`).join("")}
     </ul>    
     </li>
     <li>
     <p class="label">Health issues</p>
     <ul class="stars">
-    ${t.map(s=>e.health_issues>=s?`<li><svg width="30" height="30">
-    <use href="/images/star-rating.icons.svg#star-filled"></use>
-  </svg></li>`:`<li><svg width="30" height="30">
-        <use href="/images/star-rating.icons.svg#star-empty"></use>
+    ${s.map(i=>e.health_issues>=i?`<li><svg width="30" height="30">          
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+          
+  </svg></li>`:`<li><svg width="30" height="30">          
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-6.983 3.671 1.334-7.776-5.65-5.507 7.808-1.134 3.492-7.075 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z"></path>          
       </svg></li>`).join("")}
     </ul>    
     </li>
     <li>
     <p class="label">Intelligence</p>
     <ul class="stars">
-    ${t.map(s=>e.intelligence>=s?`<li><svg width="30" height="30">
-    <use href="/images/star-rating.icons.svg#star-filled"></use>
-  </svg></li>`:`<li><svg width="30" height="30">
-        <use href="/images/star-rating.icons.svg#star-empty"></use>
+    ${s.map(i=>e.intelligence>=i?`<li><svg width="30" height="30">          
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+          
+  </svg></li>`:`<li><svg width="30" height="30">         
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-6.983 3.671 1.334-7.776-5.65-5.507 7.808-1.134 3.492-7.075 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z"></path>          
       </svg></li>`).join("")}
     </ul>    
     </li>
     <li>
     <p class="label">Shedding level</p>
     <ul class="stars">
-    ${t.map(s=>e.shedding_level>=s?`<li><svg width="30" height="30">
-    <use href="/images/star-rating.icons.svg#star-filled"></use>
-  </svg></li>`:`<li><svg width="30" height="30">
-        <use href="/images/star-rating.icons.svg#star-empty"></use>
+    ${s.map(i=>e.shedding_level>=i?`<li><svg width="30" height="30">         
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+          
+  </svg></li>`:`<li><svg width="30" height="30">          
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-6.983 3.671 1.334-7.776-5.65-5.507 7.808-1.134 3.492-7.075 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z"></path>          
       </svg></li>`).join("")}
     </ul>    
     </li>
     <li>
     <p class="label">Social needs</p>
     <ul class="stars">
-    ${t.map(s=>e.social_needs>=s?`<li><svg width="30" height="30">
-    <use href="/images/star-rating.icons.svg#star-filled"></use>
-  </svg></li>`:`<li><svg width="30" height="30">
-        <use href="/images/star-rating.icons.svg#star-empty"></use>
+    ${s.map(i=>e.social_needs>=i?`<li><svg width="30" height="30">         
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+          
+  </svg></li>`:`<li><svg width="30" height="30">          
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-6.983 3.671 1.334-7.776-5.65-5.507 7.808-1.134 3.492-7.075 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z"></path>          
       </svg></li>`).join("")}
     </ul>    
     </li>
     <li>
     <p class="label">Stranger friendly</p>
     <ul class="stars">
-    ${t.map(s=>e.stranger_friendly>=s?`<li><svg width="30" height="30">
-    <use href="/images/star-rating.icons.svg#star-filled"></use>
-  </svg></li>`:`<li><svg width="30" height="30">
-        <use href="/images/star-rating.icons.svg#star-empty"></use>
+    ${s.map(i=>e.stranger_friendly>=i?`<li><svg width="30" height="30">          
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+          
+  </svg></li>`:`<li><svg width="30" height="30">          
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-6.983 3.671 1.334-7.776-5.65-5.507 7.808-1.134 3.492-7.075 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z"></path>          
       </svg></li>`).join("")}
     </ul>    
     </li>
     <li>
     <p class="label">Vocalisation</p>
     <ul class="stars">
-    ${t.map(s=>e.vocalisation>=s?`<li><svg width="30" height="30">
-    <use href="/images/star-rating.icons.svg#star-filled"></use>
-  </svg></li>`:`<li><svg width="30" height="30">
-        <use href="/images/star-rating.icons.svg#star-empty"></use>
+    ${s.map(i=>e.vocalisation>=i?`<li><svg width="30" height="30">          
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+          
+  </svg></li>`:`<li><svg width="30" height="30">          
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-6.983 3.671 1.334-7.776-5.65-5.507 7.808-1.134 3.492-7.075 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z"></path>          
       </svg></li>`).join("")}
     </ul>    
     </li>
     </ul>
-    <a href="${e.wikipedia_url}"> Learn more </a>`;r.loader.classList.add("visually-hidden"),r.swiperWrapper.insertAdjacentHTML("afterbegin",a),$(),r.swiperContainer.classList.remove("visually-hidden"),r.descriptionWrapper.insertAdjacentHTML("beforeend",l)}function $(){const i={modules:[u,d],loop:!0,autoplay:{delay:3e3},speed:1e3,pagination:{el:".swiper-pagination"},navigation:{nextEl:".swiper-button-next",prevEl:".swiper-button-prev"}},e=new p(".swiper",{...i});r.swiper.addEventListener("mouseover",function(){e.autoplay.stop()}),r.swiper.addEventListener("mouseout",function(){e.autoplay.start()})}function g(i){h.error({title:"Oops!",message:"Something went wrong! Try reloading the page!"})}
+    <a href="${e.wikipedia_url}"> Learn more </a>`;a.loader.classList.add("visually-hidden"),a.swiperWrapper.insertAdjacentHTML("afterbegin",l),b(),a.swiperContainer.classList.remove("visually-hidden"),a.descriptionWrapper.insertAdjacentHTML("beforeend",r)}function b(){const t={modules:[g,u],loop:!0,autoplay:{delay:3e3},speed:1e3,pagination:{el:".swiper-pagination"},navigation:{nextEl:".swiper-button-next",prevEl:".swiper-button-prev"}},e=new h(".swiper",{...t});a.swiper.addEventListener("mouseover",function(){e.autoplay.stop()}),a.swiper.addEventListener("mouseout",function(){e.autoplay.start()})}function c(t){d.error({title:"Oops!",message:"Something went wrong! Try reloading the page!"})}
 //# sourceMappingURL=commonHelpers.js.map
