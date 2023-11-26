@@ -34,6 +34,7 @@ function createSelectOptions(data) {
 }
 
 function getSelectedBreed(event) {
+  console.log(event);
   refs.loader.classList.remove('visually-hidden');
   const breedId = event.target.value;
   if (breedId !== '') {
@@ -51,10 +52,11 @@ function getSelectedBreed(event) {
 }
 
 function createCatInfoMarkup(data) {
+  console.log(data);
   const catInfo = data[0].breeds[0];
   const imageList = data.map(item => item.url);
   const ratingStars = [1, 2, 3, 4, 5];
-
+  console.log(imageList);
   const swiperMarkup = imageList
     .map(
       url =>
@@ -88,11 +90,11 @@ function createCatInfoMarkup(data) {
     ${ratingStars
       .map(item =>
         catInfo.affection_level >= item
-          ? `<li><svg width="30" height="30">
-    <use href="../assets/star-rating.icons.svg#star-filled"></use>
+          ? `<li><svg width="30" height="30">          
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>          
   </svg></li>`
-          : `<li><svg width="30" height="30">
-        <use href="../assets/star-rating.icons.svg#star-empty"></use>
+          : `<li><svg width="30" height="30">          
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-6.983 3.671 1.334-7.776-5.65-5.507 7.808-1.134 3.492-7.075 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z"></path>         
       </svg></li>`
       )
       .join('')}
@@ -104,11 +106,11 @@ function createCatInfoMarkup(data) {
     ${ratingStars
       .map(item =>
         catInfo.adaptability >= item
-          ? `<li><svg width="30" height="30">
-    <use href="/images/star-rating.icons.svg#star-filled"></use>
+          ? `<li><svg width="30" height="30">          
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>          
   </svg></li>`
-          : `<li><svg width="30" height="30">
-        <use href="/images/star-rating.icons.svg#star-empty"></use>
+          : `<li><svg width="30" height="30">          
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-6.983 3.671 1.334-7.776-5.65-5.507 7.808-1.134 3.492-7.075 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z"></path>          
       </svg></li>`
       )
       .join('')}
@@ -120,11 +122,12 @@ function createCatInfoMarkup(data) {
     ${ratingStars
       .map(item =>
         catInfo.child_friendly >= item
-          ? `<li><svg width="30" height="30">
-    <use href="/images/star-rating.icons.svg#star-filled"></use>
+          ? `<li><svg width="30" height="30">         
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+          
   </svg></li>`
-          : `<li><svg width="30" height="30">
-        <use href="/images/star-rating.icons.svg#star-empty"></use>
+          : `<li><svg width="30" height="30">         
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-6.983 3.671 1.334-7.776-5.65-5.507 7.808-1.134 3.492-7.075 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z"></path>          
       </svg></li>`
       )
       .join('')}
@@ -136,11 +139,11 @@ function createCatInfoMarkup(data) {
     ${ratingStars
       .map(item =>
         catInfo.dog_friendly >= item
-          ? `<li><svg width="30" height="30">
-    <use href="/images/star-rating.icons.svg#star-filled"></use>
+          ? `<li><svg width="30" height="30">         
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>         
   </svg></li>`
-          : `<li><svg width="30" height="30">
-        <use href="/images/star-rating.icons.svg#star-empty"></use>
+          : `<li><svg width="30" height="30">          
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-6.983 3.671 1.334-7.776-5.65-5.507 7.808-1.134 3.492-7.075 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z"></path>          
       </svg></li>`
       )
       .join('')}
@@ -152,11 +155,12 @@ function createCatInfoMarkup(data) {
     ${ratingStars
       .map(item =>
         catInfo.energy_level >= item
-          ? `<li><svg width="30" height="30">
-    <use href="/images/star-rating.icons.svg#star-filled"></use>
+          ? `<li><svg width="30" height="30">         
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+          
   </svg></li>`
-          : `<li><svg width="30" height="30">
-        <use href="/images/star-rating.icons.svg#star-empty"></use>
+          : `<li><svg width="30" height="30">          
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-6.983 3.671 1.334-7.776-5.65-5.507 7.808-1.134 3.492-7.075 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z"></path>          
       </svg></li>`
       )
       .join('')}
@@ -168,11 +172,12 @@ function createCatInfoMarkup(data) {
     ${ratingStars
       .map(item =>
         catInfo.grooming >= item
-          ? `<li><svg width="30" height="30">
-    <use href="/images/star-rating.icons.svg#star-filled"></use>
+          ? `<li><svg width="30" height="30">          
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+          
   </svg></li>`
-          : `<li><svg width="30" height="30">
-        <use href="/images/star-rating.icons.svg#star-empty"></use>
+          : `<li><svg width="30" height="30">          
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-6.983 3.671 1.334-7.776-5.65-5.507 7.808-1.134 3.492-7.075 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z"></path>          
       </svg></li>`
       )
       .join('')}
@@ -184,11 +189,12 @@ function createCatInfoMarkup(data) {
     ${ratingStars
       .map(item =>
         catInfo.health_issues >= item
-          ? `<li><svg width="30" height="30">
-    <use href="/images/star-rating.icons.svg#star-filled"></use>
+          ? `<li><svg width="30" height="30">          
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+          
   </svg></li>`
-          : `<li><svg width="30" height="30">
-        <use href="/images/star-rating.icons.svg#star-empty"></use>
+          : `<li><svg width="30" height="30">          
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-6.983 3.671 1.334-7.776-5.65-5.507 7.808-1.134 3.492-7.075 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z"></path>          
       </svg></li>`
       )
       .join('')}
@@ -200,11 +206,12 @@ function createCatInfoMarkup(data) {
     ${ratingStars
       .map(item =>
         catInfo.intelligence >= item
-          ? `<li><svg width="30" height="30">
-    <use href="/images/star-rating.icons.svg#star-filled"></use>
+          ? `<li><svg width="30" height="30">          
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+          
   </svg></li>`
-          : `<li><svg width="30" height="30">
-        <use href="/images/star-rating.icons.svg#star-empty"></use>
+          : `<li><svg width="30" height="30">         
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-6.983 3.671 1.334-7.776-5.65-5.507 7.808-1.134 3.492-7.075 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z"></path>          
       </svg></li>`
       )
       .join('')}
@@ -216,11 +223,12 @@ function createCatInfoMarkup(data) {
     ${ratingStars
       .map(item =>
         catInfo.shedding_level >= item
-          ? `<li><svg width="30" height="30">
-    <use href="/images/star-rating.icons.svg#star-filled"></use>
+          ? `<li><svg width="30" height="30">         
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+          
   </svg></li>`
-          : `<li><svg width="30" height="30">
-        <use href="/images/star-rating.icons.svg#star-empty"></use>
+          : `<li><svg width="30" height="30">          
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-6.983 3.671 1.334-7.776-5.65-5.507 7.808-1.134 3.492-7.075 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z"></path>          
       </svg></li>`
       )
       .join('')}
@@ -232,11 +240,12 @@ function createCatInfoMarkup(data) {
     ${ratingStars
       .map(item =>
         catInfo.social_needs >= item
-          ? `<li><svg width="30" height="30">
-    <use href="/images/star-rating.icons.svg#star-filled"></use>
+          ? `<li><svg width="30" height="30">         
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+          
   </svg></li>`
-          : `<li><svg width="30" height="30">
-        <use href="/images/star-rating.icons.svg#star-empty"></use>
+          : `<li><svg width="30" height="30">          
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-6.983 3.671 1.334-7.776-5.65-5.507 7.808-1.134 3.492-7.075 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z"></path>          
       </svg></li>`
       )
       .join('')}
@@ -248,11 +257,12 @@ function createCatInfoMarkup(data) {
     ${ratingStars
       .map(item =>
         catInfo.stranger_friendly >= item
-          ? `<li><svg width="30" height="30">
-    <use href="/images/star-rating.icons.svg#star-filled"></use>
+          ? `<li><svg width="30" height="30">          
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+          
   </svg></li>`
-          : `<li><svg width="30" height="30">
-        <use href="/images/star-rating.icons.svg#star-empty"></use>
+          : `<li><svg width="30" height="30">          
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-6.983 3.671 1.334-7.776-5.65-5.507 7.808-1.134 3.492-7.075 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z"></path>          
       </svg></li>`
       )
       .join('')}
@@ -264,11 +274,12 @@ function createCatInfoMarkup(data) {
     ${ratingStars
       .map(item =>
         catInfo.vocalisation >= item
-          ? `<li><svg width="30" height="30">
-    <use href="/images/star-rating.icons.svg#star-filled"></use>
+          ? `<li><svg width="30" height="30">          
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+          
   </svg></li>`
-          : `<li><svg width="30" height="30">
-        <use href="/images/star-rating.icons.svg#star-empty"></use>
+          : `<li><svg width="30" height="30">          
+          <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-6.983 3.671 1.334-7.776-5.65-5.507 7.808-1.134 3.492-7.075 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z"></path>          
       </svg></li>`
       )
       .join('')}
