@@ -127,8 +127,9 @@ body {
   width: 1em;
   height: 1em;
   border-radius: 50%;
-  position: relative;
-  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
   text-indent: -9999em;
   animation: mulShdSpin 1.1s infinite ease;
   transform: translateZ(0);

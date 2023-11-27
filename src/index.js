@@ -24,6 +24,8 @@ fetchBreeds()
   .catch(() => showError());
 
 function createSelectOptions(data) {
+  refs.loader.classList.add('visually-hidden');
+  refs.searchSelect.classList.remove('visually-hidden');
   const optionsMarkup = data
     .map(
       ({ id, name }) =>
@@ -34,7 +36,6 @@ function createSelectOptions(data) {
 }
 
 function getSelectedBreed(event) {
-  console.log(event);
   refs.loader.classList.remove('visually-hidden');
   const breedId = event.target.value;
   if (breedId !== '') {
@@ -52,11 +53,9 @@ function getSelectedBreed(event) {
 }
 
 function createCatInfoMarkup(data) {
-  console.log(data);
   const catInfo = data[0].breeds[0];
   const imageList = data.map(item => item.url);
   const ratingStars = [1, 2, 3, 4, 5];
-  console.log(imageList);
   const swiperMarkup = imageList
     .map(
       url =>
@@ -326,4 +325,5 @@ function showError(e) {
     title: 'Oops!',
     message: 'Something went wrong! Try reloading the page!',
   });
+  refs.loader.classList.add('visually-hidden');
 }
